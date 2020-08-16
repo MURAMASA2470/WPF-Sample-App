@@ -29,15 +29,19 @@ namespace WPF.Sample
         public MainWindow()
         {
             InitializeComponent();
-
             this.DataContext = Property;
-            this.Property.GridList = new ObservableCollection<Network>();
-            for (var i = 0; i < 5; i++)
+
+            // Page Loaded
+            this.Loaded += (s, e) =>
             {
-                this.Property.GridList.Add(
-                    new Network() { IP = $"192.168.1.{i * 10}", PORT = 8000, MAC = "AB:CD:EF:12:34" }
-                );
-            }
+                this.Property.GridList = new ObservableCollection<Network>();
+                for (var i = 0; i < 5; i++)
+                {
+                    this.Property.GridList.Add(
+                        new Network() { IP = $"192.168.1.{i * 10}", PORT = 8000, MAC = "AB:CD:EF:12:34" }
+                    );
+                }
+            };
 
             // ExecButton Clicked
             this.btnExec.Click += (s, e) =>

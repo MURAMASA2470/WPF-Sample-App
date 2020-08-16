@@ -1,3 +1,4 @@
-bin\
-obj\
+WPF.Sample/WPF.Sample.csproj.user
+WPF.Sample/bin/
+WPF.Sample/obj/
 .vs
